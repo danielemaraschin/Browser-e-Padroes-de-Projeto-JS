@@ -17,5 +17,7 @@ class NegociacaoController {
             this._inputData.value.split(-)
         );       
         console.log(data);
+
+        //data dentro de um obj/modelo
     }
 }
