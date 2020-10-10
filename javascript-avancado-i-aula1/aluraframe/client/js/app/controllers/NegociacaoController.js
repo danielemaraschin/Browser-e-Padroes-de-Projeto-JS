@@ -14,10 +14,12 @@ class NegociacaoController {
         event.preventDefault();
 
         let data = new Date (
-            this._inputData.value.split(-)
+            .map.this._inputData.value.split(-)
         );       
         console.log(data);
 
         //data dentro de um obj/modelo
     }
+
+    data.focus();
 }
