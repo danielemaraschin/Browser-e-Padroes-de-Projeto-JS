@@ -13,13 +13,24 @@ class NegociacaoController {
     adiciona (event){
         event.preventDefault();
 
-        let data = new Date (
-            .map.this._inputData.value.split(-)
-        );       
+
+        let data = new Date                                           // isso cria uma objeto do tipo data 
+            (...                                                     // spread operator = desmembra o array e o primeiro item do array, e cada parâmetro do Date será posicionado na mesma ordem no construtor
+            this._inputData.value                                     // isso pega uma sting "dd//mm/yyyy"
+            .split(-)                                                 //separador '-' da string, tranformando-a em um array
+            .map((item, indice) => item - indice % 2)                              //metodo q pode receber indice e/ou item do array como parametro da funcao
+                                   
+        );    
         console.log(data);
 
-        //data dentro de um obj/modelo
+        
+        
+        let negociacao = new Negociacao(
+            data;
+            this._inputQuantidade.value;
+            this._inputValor.value;
+           
+        );
+            console.log(negociacao);
     }
-
-    data.focus();
 }
