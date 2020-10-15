@@ -30,6 +30,6 @@ class NegociacaoController {
         this._inputQuantidade.value = 1;
         this._inputValor.value = 0.0;
     
-        this._inputQuantidade.focus();
+        this._inputData.focus();
     }
 }
