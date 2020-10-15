@@ -21,13 +21,14 @@ class NegociacaoController {
 
         this._listaNegociacoes.adiciona(negociacao);
         this._limpaFormulario();
+        console.log(this._listaNegociacoes.negociacoes);
     }
 
     _limpaFormulario(){             // tem underline na frente pq somente a classe ListaNegociacao pode chamar esse método ( não faz sentido outra classe chamá-lo)
 
-        this._inputData.value  = " ";
-        this.inputQuantidade.value = 1;
-        this._inputValor.value = 0.0
+        this._inputData.value  = "";
+        this._inputQuantidade.value = 1;
+        this._inputValor.value = 0.0;
     
         this._inputQuantidade.focus();
     }
