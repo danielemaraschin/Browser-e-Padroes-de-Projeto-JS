@@ -10,8 +10,8 @@ class ListaNegociacoes {
         this._negociacoes.push(negociacao)
     }
 
-    get negociacoes(){                   //pelo método get posso listar essas negociações e
-        return this._negociacoes;
+    get negociacoes(){                   
+        return [].concat(this._negociacoes);
     }
 
 }
