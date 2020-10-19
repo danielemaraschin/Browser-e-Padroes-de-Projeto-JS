@@ -19,7 +19,8 @@ class Arquivo {
     }
 }
 /*
-Sua tarefa é implementar o método envia de ArquivoController. Ele deverá ler a entrada do usuário e adequá-la ao construtor de Arquivo. Assim que você conseguir criar uma instância de arquivo, você deve imprimir seus dados no console.
-
+Sua tarefa é implementar o método envia de ArquivoController. 
+Ele deverá ler a entrada do usuário e adequá-la ao construtor de Arquivo.
+Assim que você conseguir criar uma instância de arquivo, você deve imprimir seus dados no console.
 Lembre-se que o usuário digita no campo de entrada os dados do arquivo no formato: nome / tamanho / tipo e deve estar em caixa alta!
 */
