@@ -1,5 +1,8 @@
-/*
-
+class NegociacoesView {
+   
+    template(){
+        return `
+    
  <table class="table table-hover table-bordered">
         <thead>
             <tr>
@@ -15,9 +18,6 @@
         <tfoot>
         </tfoot>
     </table>
-
-
-*/
-
-
-
+        `;
+    }
+}
