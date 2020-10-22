@@ -1,4 +1,7 @@
 class NegociacoesView {
+    constructor(){'
+        this._elemento = elemento;    
+}
    
     template(){
         return `
