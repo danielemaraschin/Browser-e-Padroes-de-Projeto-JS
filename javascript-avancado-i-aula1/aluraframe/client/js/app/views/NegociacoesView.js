@@ -16,15 +16,16 @@ class NegociacoesView {
             </tr>
         </thead>
         <tbody>
-        ${model.negociacoes.map(n => {             //isso precisa ser processado antes do template retornar a template string
-          return `
-            <tr>
-                <td> ${DateHelper.dataParaTexto(n.data)}</td>
-                <td>${n.quantidade}</td>
-                <td>${n.valor}</td>
-                <td>${n.volume}</td>
-            </tr>`
-        }).join("")}                                    
+        ${model.negociacoes.map(n =>          //isso precisa ser processado antes do template retornar a template string
+            `
+                <tr>
+                    <td> ${DateHelper.dataParaTexto(n.data)}</td>
+                    <td>${n.quantidade}</td>
+                    <td>${n.valor}</td>
+                    <td>${n.volume}</td>
+                </tr>
+            `
+            ).join("")}                                    
         </tbody>
         <tfoot>
         </tfoot>
