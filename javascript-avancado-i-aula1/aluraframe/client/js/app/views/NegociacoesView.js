@@ -28,6 +28,8 @@ class NegociacoesView {
             ).join("")}                                    
         </tbody>
         <tfoot>
+            <td colspan="3"></td>
+            <td>0</td>
         </tfoot>
     </table>
         `;
