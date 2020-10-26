@@ -41,6 +41,6 @@ class NegociacoesView {
         this._elemento.innerHTML = this._template(model); // innerHTML é o retorno da função template; = retorno da template é filho da div;
     }
 
-//precisa retornar uma string para ser add ao template
+//precisa retornar uma string para ser add ao template, por isso usamos o join
 
 }
