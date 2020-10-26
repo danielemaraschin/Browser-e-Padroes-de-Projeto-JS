@@ -1,0 +1,1 @@
+numeros.reduce((total,num) => total * num, 1);
