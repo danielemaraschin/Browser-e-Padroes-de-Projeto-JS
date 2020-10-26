@@ -17,23 +17,18 @@ class NegociacoesView {
         </thead>
         <tbody>
         ${model.negociacoes.map(n =>          //isso precisa ser processado antes do template retornar a template string
-            `
-                <tr>
+            `<tr>
                     <td> ${DateHelper.dataParaTexto(n.data)}</td>
                     <td>${n.quantidade}</td>
                     <td>${n.valor}</td>
                     <td>${n.volume}</td>
                 </tr>
-            `
-            ).join("")}                                    
+            `).join("")}                                    
         </tbody>
 
         <tfoot>
             <td colspan="3"></td> 
-            <td> ${model.negociacoes.reduce(function(total, n ){    //total = volume,var q será incrementada n= negociacao dentro do array
-                return total + n.volume;
-            }, 0.0)
-            }</td>    
+            <td> ${model.negociacoes.reduce((total, n ) => total + n.volume,0.0)}</td>    
         </tfoot>
     </table>
         `;
