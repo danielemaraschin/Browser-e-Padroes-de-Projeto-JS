@@ -27,15 +27,19 @@ class NegociacoesView {
             `
             ).join("")}                                    
         </tbody>
+
         <tfoot>
-            <td colspan="3"></td>
-            <td>0</td>
+            <td colspan="3"></td> 
+            <td> ${model.negociacoes.reduce(function(total, n ){    //total = volume,var q será incrementada n= negociacao dentro do array
+                return total + n.volume;
+            }, 0.0)
+            }</td>    
         </tfoot>
     </table>
         `;
     }
 
-    update(model){
+    update(model){          // model é a lista de negociacoes
     
         // inerHTML transforma a string em elementos do DOM (se a string estiver com marcação correta) = será inserido como filho da div
     
