@@ -37,7 +37,7 @@
                 "salario" : "6000"
             }
         ];
-
+                            //Antes tinhamos : funcionarios = [{objeto_func1},{objeto_func2},{objeto_func3}];
         let funcionarioEmHtml = funcionarios.map (f => `
         <tr>
             <td> ${f.nome}</td>
@@ -45,8 +45,13 @@
             <td> ${f.salario}</td>
         </tr>
             ` );
-        
+                            //dps tivemos: funcionariosEmHtml = ["<tr><td>...</td></tr>","<tr><td>...</td></tr>","<tr><td>...</td></tr>"];
+
         let htmlConcatenado = funcionarioEmHtml.join ('');
+                            // Agora temos: htmlConcatenado = ["<tr><td>...</td></tr><tr><td>...</td></tr><tr><td>...</td></tr>"];          
+    
+    let tabela = document.querySelector("tbody");
+    tabela.innerHTML = htmlConcatenado;
     </script>
 </body>
 </html>
