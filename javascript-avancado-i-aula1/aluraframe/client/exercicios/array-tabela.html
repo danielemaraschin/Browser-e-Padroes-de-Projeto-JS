@@ -15,8 +15,8 @@
 
         <tbody>
 
-            <!-- ELE ESTÁ COM DIFICULDADES AQUI -->
-        <tbody>
+        </tbody>     
+
     </table>
 
     <script>
@@ -37,6 +37,16 @@
                 "salario" : "6000"
             }
         ];
+
+        let funcionarioEmHtml = funcionarios.map (f => `
+        <tr>
+            <td> ${f.nome}</td>
+            <td> ${f.endereco}</td>
+            <td> ${f.salario}</td>
+        </tr>
+            ` );
+        
+        let htmlConcatenado = funcionarioEmHtml.join ('');
     </script>
 </body>
 </html>
