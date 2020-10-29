@@ -1,8 +1,9 @@
-class NegociacoesView {
+class NegociacoesView extends View {
+ 
     constructor(elemento) {
-        this._elemento = elemento;
+        super(elemento);
     }
-
+    
     _template(model) {
         return `
     
@@ -23,7 +24,7 @@ class NegociacoesView {
                     <td>${n.valor}</td>
                     <td>${n.volume}</td>
                 </tr>
-            `).join("")}                                    
+            `).join("")}                ////precisa retornar uma string para ser add ao template, por isso usamos o join                            
         </tbody>
 
         <tfoot>
@@ -33,14 +34,4 @@ class NegociacoesView {
     </table>
         `;
     }
-
-    update(model){          // model é a lista de negociacoes
-    
-        // inerHTML transforma a string em elementos do DOM (se a string estiver com marcação correta) = será inserido como filho da div
-    
-        this._elemento.innerHTML = this._template(model); // innerHTML é o retorno da função template; = retorno da template é filho da div;
-    }
-
-//precisa retornar uma string para ser add ao template, por isso usamos o join
-
 }
