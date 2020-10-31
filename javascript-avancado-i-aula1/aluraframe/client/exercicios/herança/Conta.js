@@ -1,6 +1,6 @@
 class Conta{
 
-    constructor{
+    constructor (saldo) {
         this._saldo = saldo;
     }
 
@@ -12,3 +12,4 @@ class Conta{
         throw new Error('Você deve sobrescrever o método');;
     }
 }
+

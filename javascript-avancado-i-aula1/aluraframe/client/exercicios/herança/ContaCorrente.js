@@ -1,8 +1,6 @@
 class ContaCorrente extends Conta{
 
-    constructor{
-
+    atualiza(taxa){
+        this._saldo = this._saldo + taxa;
     }
-
-    atualiza(taxa){}
 }
