@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Conta-teste</title>
+</head>
+
+<body>
+
+    <br>
+    <br>
+    <script src="Conta.js"></script>
+    <script src="ContaCorrente.js"></script>
+    <script src="ContaPoupanca.js"></script>
+    <script>
+        let conta1 = new ContaCorrente(200);
+        let conta2 = new ContaPoupanca(300);
+        conta1.atualiza(2);
+        //conta2.atualiza(3);
+        console.log(conta1.saldo);
+        //console.log(conta2.saldo);
+        console.log(conta2.atualiza2(3));
+    </script>
+</body>
