@@ -24,7 +24,7 @@ class NegociacoesView extends View {
                     <td>${n.valor}</td>
                     <td>${n.volume}</td>
                 </tr>
-            `).join("")}                ////precisa retornar uma string para ser add ao template, por isso usamos o join                            
+            `).join("")}       //precisa retornar uma string para ser add ao template, por isso usamos o join                            
         </tbody>
 
         <tfoot>
