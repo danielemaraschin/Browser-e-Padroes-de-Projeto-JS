@@ -2,8 +2,8 @@ class ContaController{
 
 
     mostraSaldo (){
-        var conta1 = new ContaCorrente(saldo);
-        var conta2 = new ContaPoupanca(saldo);
+        var conta1 = new ContaCorrente(200);
+        var conta2 = new ContaPoupanca(300);
         conta1.atualiza(2);
         conta2.atualiza(3);
         console.log(conta1.saldo);
