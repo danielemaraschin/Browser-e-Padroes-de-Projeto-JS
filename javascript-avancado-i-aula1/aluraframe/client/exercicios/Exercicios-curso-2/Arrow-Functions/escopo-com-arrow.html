@@ -11,14 +11,15 @@
         class SistemaImpressao {
 
             constructor() {
-                this._codigo = 2;   
+                this._codigo = 2;
             }
 
-            imprime(nomes) {       
-                nomes.forEach(function(nome) {
+            imprime(nomes) {
+
+                nomes.forEach (nome => {        //agora funciona!!
                     console.log(this);
-                    console.log(`${this._codigo}: ${nome}`); // nao funciona pq this._codigo é undefined,
-                });                                     //ele não será uma instancia da classe SistemaImpressao
+                    console.log(`${this._codigo}: ${nome}`);
+                });
             }
         }
 
