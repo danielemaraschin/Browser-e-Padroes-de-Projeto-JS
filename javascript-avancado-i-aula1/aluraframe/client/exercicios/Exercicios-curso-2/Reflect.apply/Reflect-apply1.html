@@ -1,0 +1,19 @@
+<script>
+let objeto1 = {
+
+nome: 'Bob'
+};
+
+let objeto2 = {
+
+nome: 'Leo'
+}
+
+function exibeNome(prefixo, sufixo) {
+
+alert(prefixo + this.nome + sufixo);
+}
+
+Reflect.apply(exibeNome, objeto1, ['(', ')']); // exibe 'Bob'
+Reflect.apply(exibeNome, objeto2, ['cachorrinho '    , 'n']); // exibe 'Leo'
+</script>
