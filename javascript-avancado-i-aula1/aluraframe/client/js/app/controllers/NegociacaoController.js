@@ -6,10 +6,11 @@ class NegociacaoController {
         this._inputData = $('#data');
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
-        this._listaNegociacoes = new ListaNegociacoes(model => //umas lista de negociacoes eh criada 
+                    // iremos alterar esse código abaixo da atualiz da view
+        /*this._listaNegociacoes = new ListaNegociacoes(model => //umas lista de negociacoes eh criada 
             this._negociacoesView.update(model));
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
-        this._negociacoesView.update(this._listaNegociacoes);
+        this._negociacoesView.update(this._listaNegociacoes);*/
 
         this._mensagem = new Mensagem();
         this._mensagemView = new MensagemView($('#MensagemView'));        //colocar dentro dos parenteses onde quer add a msg (no html )
