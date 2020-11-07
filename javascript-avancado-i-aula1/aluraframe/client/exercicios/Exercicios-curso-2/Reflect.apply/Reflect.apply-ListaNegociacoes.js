@@ -8,7 +8,7 @@ class ListaNegociacoes {
 
     adiciona(negociacao) {
         this._negociacoes.push(negociacao);
-        Reflect.apply(this._armadilha, this._contexto, [this]);  // USANDO MÉTODO REFLECT.APPLY
+        Reflect.apply(this._armadilha, this._contexto, [this]);  // USANDO MÉTODO REFLECT.APPLY = REFLECT APPLY É ALGO NOVO A PARTIR DO ES6
     }
 
     get negociacoes() {

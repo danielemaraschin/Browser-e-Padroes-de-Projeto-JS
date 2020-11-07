@@ -1,22 +1,22 @@
 class ListaNegociacoes {
 
-    constructor(armadilha){
-
-        this._negociacoes = []      //a lista inicia em branco
+    constructor(contexto, armadilha) {
+        this._negociacoes = [];
         this._armadilha = armadilha;
+        this._contexto = contexto;  // USANDO MÉTODO .APPLY PRECISA DA VAR _CONTEXTO;
     }
 
-    adiciona(negociacao){               // pelo metodo adiciona ,add novas negociações
+    adiciona(negociacao) {
         this._negociacoes.push(negociacao);
-        this._armadilha(this);
+        this._armadilha.apply(this._contexto, [this]); // USANDO MÉTODO .APPLY diretamente no Armadilha (ERA ASSIM ATÉ O S5)
     }
 
-    get negociacoes(){                   
+    get negociacoes() {
         return [].concat(this._negociacoes);
     }
 
-    esvazia(){
+    esvazia() {
         this._negociacoes = [];
-       this._armadilha(this);
+        this._armadilha.apply(this._contexto, [this]);// USANDO MÉTODO .APPLY diretamente no Armadilha (ERA ASSIM ATÉ O S5)
     }
 }
