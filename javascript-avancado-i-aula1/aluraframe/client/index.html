@@ -55,23 +55,5 @@
     <script>
         let negociacaoController = new NegociacaoController();
     </script>
-
-    <script> 
-        let lista = new Proxy(new ListaNegociacoes(),{ // PROXY:Métodos primeiro é chamada de leitura e dps apply.
-
-            get(target, prop, receiver) {     //verifica se dentro de prop, a propriedade que está sendo lida é uma das que quer interceptar (se está dentro do array), se adiciona ou esvazia está dentro de prop.
-                if (['adiciona', 'esvazia'].includes(prop) && typeof(target[prop] == typeof(Function)){ //verifica se a prop de target é uma função
-                    return function () {        // se tudo acima for verdadeiro substitui o método do proxy por outro (pela funcao abaixp reflect.apply)
-                        console.log (`interceptando ${prop}`);
-                        Reflect.apply(target[prop], target, arguments);  //arguments é um parametro acessivel em qualquer funcao, que dá acesso a todos os parametros da função                      
-                    }
-                }
-                    return Reflect.get(target, prop, receiver); // se nao for verdadeiro o if, entao vem pra cá, dá reflect get e deixa o código seguir
-            }
-        });
-
-        lista.adiciona(new Negociacao(new Date (), 1 , 100));
-        lista.esvazia();
-   </script>
 </body>
 </html>
