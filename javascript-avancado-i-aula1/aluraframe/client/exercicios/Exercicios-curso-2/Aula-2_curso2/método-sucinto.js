@@ -1,5 +1,5 @@
 var objeto = {
-    exibeMensagem : function(){
-        console.log("Olá");
+    exibeMensagem() {
+        console.log("Olá")
     }
-};
+}
