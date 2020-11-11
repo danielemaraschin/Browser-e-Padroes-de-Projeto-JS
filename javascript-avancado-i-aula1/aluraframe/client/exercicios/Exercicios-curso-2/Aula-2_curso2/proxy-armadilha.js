@@ -1,0 +1,1 @@
+let funcionario = {email: 'abc@abc.com'};
