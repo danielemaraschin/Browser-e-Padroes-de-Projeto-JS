@@ -12,3 +12,13 @@ class Funcionario {
         this._email = email;
     }
 }
+
+
+let funcionarioProxy = new Proxy(new Funcionario("abc@abc.com"), {
+    get(target, prop, receiver) {
+        console.log(`"Armadilha aqui"`);
+        return Reflect.get(target, prop, receiver);
+    }
+});
+
+console.log(funcionarioProxy.email);
