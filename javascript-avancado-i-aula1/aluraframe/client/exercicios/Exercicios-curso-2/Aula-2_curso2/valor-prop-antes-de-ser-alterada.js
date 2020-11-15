@@ -18,11 +18,11 @@ let funcionario = {email: 'abc@abc.com'};
 
 let funcionario = new Proxy(new Funcionario('abc@abc.com'), {
 
-    set: (target, prop,value, receiver) {
-        console.log(``);
+    set(target, prop,value, receiver) {
+        console.log(`Valor antigo ${target[prop]}, valor atual: ${value}`);
         return Reflect.set(target, prop, value,receiver);
     }
 
 });
 
-funcionario.email = ("dani@alura.com");
+funcionario.email = ("alura@abc.com");
