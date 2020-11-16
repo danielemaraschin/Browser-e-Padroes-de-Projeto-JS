@@ -10,9 +10,9 @@ class NegociacaoController {
         this._listaNegociacoes = new Proxy(new ListaNegociacoes(), {
             get(target, prop, receiver) {                                                                               //verifica se dentro de prop, a propriedade que está sendo lida é uma das que quer interceptar (se está dentro do array),
                 if (['adiciona', 'esvazia'].includes(prop) && typeof (target[prop]) == typeof (Function)){               //verifica se a prop de target é uma função
-                    return function () {                                                                                // se tudo acima for verdadeiro substitui o método do proxy por outro (pela funcao abaixp reflect.apply)
+                    return function () {                                                                              // se tudo acima for verdadeiro substitui o método do proxy por outro (pela funcao abaixp reflect.apply)
                         console.log(`interceptando ${prop}`);
-                        Reflect.apply(target[prop], target, arguments);                                                 //arguments é um parametro acessivel em qualquer funcao, que dá acesso a todos os parametros da função                      
+                        Reflect.apply(target[prop], target, arguments);               //arguments é um parametro acessivel em qualquer funcao, que dá acesso a todos os parametros da função 
                         self._negociacoesView.update(target);
                     }
                 }
