@@ -16,7 +16,7 @@ class Funcionario {
 
 let funcionario = {email: 'abc@abc.com'};
 
-let funcionario = new Proxy(new Funcionario('abc@abc.com'), {
+let funcionarioProxy = new Proxy(new Funcionario('abc@abc.com'), {
 
     set(target, prop,value, receiver) {
         console.log(`Valor antigo ${target[prop]}, valor atual: ${value}`);
@@ -25,4 +25,4 @@ let funcionario = new Proxy(new Funcionario('abc@abc.com'), {
 
 });
 
-funcionario.email = ("alura@abc.com");
+funcionarioProxy.email = ("alura@abc.com");
