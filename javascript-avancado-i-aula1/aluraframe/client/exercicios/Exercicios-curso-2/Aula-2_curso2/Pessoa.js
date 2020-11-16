@@ -17,6 +17,7 @@ class Pessoa {
     }
 }
 
+
 let pessoa = new Proxy(new Pessoa('Barney'), {
 
     get(target, prop, receiver) {
@@ -35,4 +36,4 @@ let pessoa = new Proxy(new Pessoa('Barney'), {
     }
 });
 
-pessoa.grita('Olá');
+console.log(pessoa.grita('Olá'));
