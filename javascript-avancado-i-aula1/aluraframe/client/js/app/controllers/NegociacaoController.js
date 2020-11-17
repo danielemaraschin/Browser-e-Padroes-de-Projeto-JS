@@ -17,8 +17,8 @@ class NegociacaoController {
 
         this._mensagem = ProxyFactory.create(
             new Mensagem(),['texto'], model =>    // nao precisa de parenteses nesse model pq eh so 1 parametro
-            this._mensagemView.update(model)
-            );
+            this._mensagemView.update(model));
+
         this._mensagemView = new MensagemView($('#MensagemView'));   //colocar dentro dos parenteses onde quer add a msg (no html )
         this._mensagemView.update(this._mensagem); //quando atualiza tela, nao so quando algo é modificado pelo adiciona/apaga
     }
