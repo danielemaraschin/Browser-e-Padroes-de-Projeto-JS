@@ -11,6 +11,14 @@ class ProxyFactory {
                     }
                 }
                 return Reflect.get(target, prop, receiver);                                                              //se nao for verdadeiro o if, entao vem pra cá, dá reflect get e deixa o código seguir
+            },
+
+            set (target, prop, value, receiver){
+                if (props.includes(prop){
+                    target(prop) = value;
+                    acao(target);
+                }
+                return Reflect.set(target, prop, value, receiver);
             }
         });
     }

@@ -6,9 +6,10 @@ class NegociacaoController {
         this._inputData = $('#data');
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
+
         this._listaNegociacoes = ProxyFactory.create(
             new ListaNegociacoes(),
-            ['adiciona', '[esvazia]'], (model) =>  // nao precisa de parenteses nesse model pq eh so 1 parametro
+            ['adiciona', 'esvazia'], (model) =>  // nao precisa de parenteses nesse model pq eh so 1 parametro
             this._negociacoesView.update(model));
 
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
@@ -19,8 +20,9 @@ class NegociacaoController {
             this._mensagemView.update(model)
             );
         this._mensagemView = new MensagemView($('#MensagemView'));   //colocar dentro dos parenteses onde quer add a msg (no html )
-        this._mensagemView.update(this._mensagem);
+        this._mensagemView.update(this._mensagem); //quando atualiza tela, nao so quando algo é modificado pelo adiciona/apaga
     }
+
     adiciona(event) {
         event.preventDefault();
 
