@@ -7,10 +7,10 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
 
-        this._listaNegociacoes = ProxyFactory.create(
+        this._listaNegociacoes = new Bind(
             new ListaNegociacoes(),
-            ['adiciona', 'esvazia'], (model) =>  // nao precisa de parenteses nesse model pq eh so 1 parametro
-            this._negociacoesView.update(model));
+            this._negociacoesView,
+            ['adiciona', 'esvazia'])
 
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
         this._negociacoesView.update(this._listaNegociacoes);
