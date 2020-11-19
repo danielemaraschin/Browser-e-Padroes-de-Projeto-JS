@@ -7,21 +7,19 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
 
+        this._negociacoesView = new NegociacoesView($('#negociacoesView'));
         this._listaNegociacoes = new Bind(
             new ListaNegociacoes(),
             this._negociacoesView,
             ['adiciona', 'esvazia'])
 
-        this._negociacoesView = new NegociacoesView($('#negociacoesView'));
-        this._negociacoesView.update(this._listaNegociacoes);
-
-        this._mensagem = ProxyFactory.create(
-            new Mensagem(),['texto'], model =>    // nao precisa de parenteses nesse model pq eh so 1 parametro
-            this._mensagemView.update(model));
-
         this._mensagemView = new MensagemView($('#MensagemView'));   //colocar dentro dos parenteses onde quer add a msg (no html )
-        this._mensagemView.update(this._mensagem); //quando atualiza tela, nao so quando algo é modificado pelo adiciona/apaga
+        this._mensagem = new Bind(
+            new Mensagem(),             //modelo
+            this._mensagemView,         //view
+            ['texto']);                 //condição
     }
+
 
     adiciona(event) {
         event.preventDefault();
