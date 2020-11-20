@@ -11,13 +11,13 @@ class NegociacaoController {
         this._listaNegociacoes = new Bind(
             new ListaNegociacoes(),
             this._negociacoesView,
-            ['adiciona', 'esvazia'])
+            'adiciona', 'esvazia')    //METODOS
 
         this._mensagemView = new MensagemView($('#MensagemView'));   //colocar dentro dos parenteses onde quer add a msg (no html )
         this._mensagem = new Bind(
             new Mensagem(),             //modelo
             this._mensagemView,         //view
-            ['texto']);                 //condição
+            'texto');                 //condição  (PROPERTY)
     }
 
 
