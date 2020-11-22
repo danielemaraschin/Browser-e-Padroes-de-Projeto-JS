@@ -7,17 +7,16 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
 
-        this._negociacoesView = new NegociacoesView($('#negociacoesView'));
         this._listaNegociacoes = new Bind(
             new ListaNegociacoes(),
-            this._negociacoesView,
+            new NegociacoesView($('#negociacoesView')),
             'adiciona', 'esvazia')    //METODOS
 
-        this._mensagemView = new MensagemView($('#MensagemView'));   //colocar dentro dos parenteses onde quer add a msg (no html )
+        
         this._mensagem = new Bind(
-            new Mensagem(),             //modelo
-            this._mensagemView,         //view
-            'texto');                 //condição  (PROPERTY)
+            new Mensagem(),                        //modelo
+            new MensagemView($('#MensagemView')), //view               colocar dentro dos parenteses onde quer add a msg (no html ) 
+            'texto');                             //condição  (PROPERTY)
     }
 
 
