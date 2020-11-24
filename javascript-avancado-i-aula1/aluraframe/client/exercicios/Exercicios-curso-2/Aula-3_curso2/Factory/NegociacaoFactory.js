@@ -1,11 +1,11 @@
-// class Negociacao {
-//     constructo (){
-
-//     }
-//     mostra(texto){
-//         console.log("aqui eh o Negociacao")
-//     }
-// }
+class Negociacao {
+    constructor(){
+        
+    }
+    mostra(texto){
+        console.log("aqui eh o Negociacao")
+    }
+}
 
 
 class NegociacaoAcao  {
