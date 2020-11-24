@@ -1,16 +1,42 @@
-class NegociacaoFactory {
-    static create(tipoNegociacao, dados) {
+// class Negociacao {
+//     constructo (){
 
-        if (tipoNegociacao == "opcao") {
-            return new NegociacaoOpcao(dados.data, dados.quantidade)
-        }
+//     }
+//     mostra(texto){
+//         console.log("aqui eh o Negociacao")
+//     }
+// }
 
-        return NegociacaoAcao(dados.data, dados.quantidade);
+
+class NegociacaoAcao  {
+    mostra(){
+        console.log("aqui eh o NegociacaoAcao")
     }
 }
 
-var negociacao = null;
+
+class NegociacaoOpcao {
+    mostra(){
+        console.log("aqui eh o NegociacaoOpcao")
+    }
+}
+    
+
+class NegociacaoFactory {
+    static create(tipoNegociacao) {
+
+        if (tipoNegociacao == "opcao") {
+            return new NegociacaoOpcao();
+        } else {
+            return new NegociacaoAcao();
+        }
+
+        
+    }
+}
+
 
 let tipoNegociacao = "opcao";
+let returnaDeAcordoComOTipo = NegociacaoFactory.create(tipoNegociacao);
 
-let n = NegociacaoFactory.create("acao", {'data': new Date(), 'quantidade': 2});
+returnaDeAcordoComOTipo.mostra();

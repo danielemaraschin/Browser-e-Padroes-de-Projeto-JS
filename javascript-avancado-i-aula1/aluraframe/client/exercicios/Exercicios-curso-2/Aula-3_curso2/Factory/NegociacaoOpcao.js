@@ -1,6 +1,11 @@
-class NegociacaoOpcao extends NegociacaoFactory {
+ import { Negociacao } from "./Negociacao";
 
-    constructor(elemento) {
-        super(elemento);
+class NegociacaoOpcao extends Negociacao {
+
+
+
+    mostra(){
+        console.log("aqui eh o NegociacaoOpcao")
     }
+}
     
