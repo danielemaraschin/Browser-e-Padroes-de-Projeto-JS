@@ -1,9 +1,10 @@
-class Negociacao {
-    mostra(texto){
-        texto = "aqui eh o Negociacao";
-        console.log(texto)
-    }
-}
+// class Negociacao {
+
+//     mostra(texto){
+//         texto = "aqui eh o Negociacao";
+//         console.log(texto);
+//     }
+// }
 
 
 class NegociacaoAcao  {
@@ -15,7 +16,7 @@ class NegociacaoAcao  {
 
 
 class NegociacaoOpcao {
-    mostra(){
+    mostra(texto){
         texto = "aqui eh o NegociacaoOpcao";
         console.log(texto)
     }
@@ -26,9 +27,9 @@ class NegociacaoFactory {
     static create(tipoNegociacao) {
 
         if (tipoNegociacao == "opcao") {
-            return new NegociacaoOpcao();
+            return new NegociacaoOpcao()
         } else {
-            return new NegociacaoAcao();
+            return new NegociacaoAcao()
         }
 
         
