@@ -6,8 +6,9 @@ class ProxyFactory {
                 if (props.includes(prop) && ProxyFactory._ehFuncao(target[prop])){   //verifica se a prop de target é uma função
                     return function () {                     // se tudo acima for verdadeiro substitui o método do proxy por outro (pela funcao abaixp reflect.apply)
                         console.log(`interceptando ${prop}`);
-                        Reflect.apply(target[prop], target, arguments);     //arguments é um parametro acessivel em qualquer funcao, que dá acesso a todos os parametros da função 
-                        return acao(target);
+                        let retorno = Reflect.apply(target[prop], target, arguments);     //arguments é um parametro acessivel em qualquer funcao, que dá acesso a todos os parametros da função 
+                        acao(target);
+                        return retorno; 
                     }
                 }
                 return Reflect.get(target, prop, receiver);                                                              //se nao for verdadeiro o if, entao vem pra cá, dá reflect get e deixa o código seguir

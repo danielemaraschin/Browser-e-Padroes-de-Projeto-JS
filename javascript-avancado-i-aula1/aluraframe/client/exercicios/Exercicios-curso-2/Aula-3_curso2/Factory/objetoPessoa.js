@@ -7,4 +7,4 @@ let pessoa = {
 }
 
 
-console.log(pessoa.getNomeCompleto());
+console.log(pessoa.getNomeCompleto()):
