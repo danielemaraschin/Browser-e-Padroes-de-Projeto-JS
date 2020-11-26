@@ -15,12 +15,9 @@ class ProxyFactory {
             },
 
             set(target, prop, value, receiver) {    //precisamos usar o set por causa da mensagem,
-                if(props.includes(prop)) {          //  se fosse só a lista de negociacao poderia ser so get
-                    target[prop] = value;
-                    acao(target);
-                }
-            
-                return Reflect.set(target, prop, value, receiver);
+                let retorno = Reflect.set(target, prop, value, receiver);
+                if(props.includes(prop)) acao(target);    // só executa acao(target) se for uma propriedade monitorada
+                return retorno; 
             }
         });
     }
