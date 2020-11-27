@@ -35,6 +35,19 @@ class NegociacaoController {
 
       xhr.open('GET', 'negociacoes/semana');
 
+      xhr.onreadystatechange = () => {
+        if(xhr.readyState ==4) {
+            if(xhr.status ==200) {
+                JSON.parse(xhr.responseText) //Transforma JSON em objeto JS
+                .map(objeto => new Negociacao (objeto.data, objeto.quantidade, objeto.valor)) //pegar um array, varrer o array e criar um novo array MODIFICADO
+                .forEach(negociacao => this._listaNegociacoes.adicion(negociacao)); //Adicionar a negociacao na lista
+
+            }else{
+                console.log('Não foi possível obter as negociações do servidor');
+                console.log(xhr.responseText);
+            }
+        }
+      };
       xhr.send();
     }
 
