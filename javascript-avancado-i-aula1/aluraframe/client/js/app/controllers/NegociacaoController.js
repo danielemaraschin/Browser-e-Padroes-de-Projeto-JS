@@ -28,6 +28,16 @@ class NegociacaoController {
         this._limpaFormulario();
     }
 
+    importaNegociacoes(){
+      alert("importanto Negociacoes!") 
+
+      let xhr = new XMLHttpRequest();
+
+      xhr.open('GET', 'negociacoes/semana');
+
+      xhr.send();
+    }
+
     apaga() {
 
         this._listaNegociacoes.esvazia();
