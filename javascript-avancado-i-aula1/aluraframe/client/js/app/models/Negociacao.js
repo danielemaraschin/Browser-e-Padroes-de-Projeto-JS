@@ -1,7 +1,9 @@
 class Negociacao{
     constructor( data, quantidade, valor){
+            //2020-11-27T16:36:16.968Z
 
-        this._data = new Date (data.getTime());
+
+        this._data = new Date (data.getTime());//3423452353453465465565
         this._quantidade = quantidade;
         this._valor = valor;  
         Object.freeze(this);

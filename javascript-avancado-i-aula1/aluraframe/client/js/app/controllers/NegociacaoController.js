@@ -15,7 +15,7 @@ class NegociacaoController {
         
         this._mensagem = new Bind(
             new Mensagem(),                        //modelo
-            new MensagemView($('#MensagemView')), //view               colocar dentro dos parenteses onde quer add a msg (no html ) 
+            new MensagemView($('#MensagemView')), //view   -colocar dentro dos parenteses onde quer add a msg (no html ) 
             'texto');                             //condição  (PROPERTY)
     }
 
@@ -40,11 +40,11 @@ class NegociacaoController {
             if(xhr.status ==200) {
                 JSON.parse(xhr.responseText) //Transforma JSON em objeto JS
                 .map(objeto => new Negociacao (objeto.data, objeto.quantidade, objeto.valor)) //pegar um array, varrer o array e criar um novo array MODIFICADO
-                .forEach(negociacao => this._listaNegociacoes.adicion(negociacao)); //Adicionar a negociacao na lista
-
+                .forEach(negociacao => this._listaNegociacoes.adicion(negociacao)); //Adicionar cada item desse novo array na lista de negociacoes
+                this._mensagem.texto = "Negociacões importadas com sucesso."
             }else{
-                console.log('Não foi possível obter as negociações do servidor');
                 console.log(xhr.responseText);
+                this._mensagem.texto = 'Não foi possível obter as negociações.'
             }
         }
       };
