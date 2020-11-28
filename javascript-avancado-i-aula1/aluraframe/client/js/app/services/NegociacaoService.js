@@ -1,10 +1,8 @@
 class NegociacaoService {
-    importaNegociacoes(){
-        alert("importanto Negociacoes!") 
-  
+
+    obterNegociacoesDaSemana(cb){
         let xhr = new XMLHttpRequest();
-  
-        xhr.open('GET', 'negociacao/semana');
+        xhr.open('GET', 'negociacoes/semana');
   
         xhr.onreadystatechange = () => {
           if(xhr.readyState ==4) {
