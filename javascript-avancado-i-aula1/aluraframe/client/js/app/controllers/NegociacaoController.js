@@ -33,14 +33,14 @@ class NegociacaoController {
 
       let xhr = new XMLHttpRequest();
 
-      xhr.open('GET', 'negociacoes/semana');
+      xhr.open('GET', 'negociacao/semana');
 
       xhr.onreadystatechange = () => {
         if(xhr.readyState ==4) {
             if(xhr.status ==200) {
-                JSON.parse(xhr.responseText) //Transforma JSON em objeto JS
-                .map(objeto => new Negociacao (objeto.data, objeto.quantidade, objeto.valor)) //pegar um array, varrer o array e criar um novo array MODIFICADO
-                .forEach(negociacao => this._listaNegociacoes.adicion(negociacao)); //Adicionar cada item desse novo array na lista de negociacoes
+                JSON.parse(xhr.responseText) // acesso às requisições retornadas do servidor.
+                .map(objeto => new Negociacao (objeto.data, objeto.quantidade, objeto.valor)) //Transforma JSON em objeto JS= pegar um array, varrer o array e criar um novo array MODIFICADO
+                .forEach(negociacao => this._listaNegociacoes.adiciona(negociacao)); //Adicionar cada item desse novo array na lista de negociacoes
                 this._mensagem.texto = "Negociacões importadas com sucesso."
             }else{
                 console.log(xhr.responseText);
