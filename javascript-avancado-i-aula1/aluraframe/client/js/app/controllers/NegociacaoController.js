@@ -29,9 +29,8 @@ class NegociacaoController {
     }
 
     importaNegociacoes(){
-      alert("importanto Negociacoes!") 
-
-      let service = new NegociacaoService();
+      
+      let service = new NegociacoesService();
       service.obterNegociacoesDaSemana();
     }
 
