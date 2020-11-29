@@ -31,7 +31,7 @@ class NegociacaoController {
     importaNegociacoes(){
       alert("importanto Negociacoes!") 
 
-      let let service = new NegociacaoService();
+      let service = new NegociacaoService();
       service.obterNegociacoesDaSemana();
     }
 
