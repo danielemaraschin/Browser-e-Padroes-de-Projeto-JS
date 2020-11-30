@@ -12,7 +12,7 @@ class NegociacaoController {
             new NegociacoesView($('#negociacoesView')),
             'adiciona', 'esvazia')    //METODOS
 
-        
+
         this._mensagem = new Bind(
             new Mensagem(),                        //modelo
             new MensagemView($('#MensagemView')), //view   -colocar dentro dos parenteses onde quer add a msg (no html ) 
@@ -28,11 +28,19 @@ class NegociacaoController {
         this._limpaFormulario();
     }
 
-    importaNegociacoes(){
-      
-      let service = new NegociacoesService();
-      service.obterNegociacoesDaSemana();
+    importaNegociacoes() {
+
+        let service = new NegociacoesService();
+        service.obterNegociacoesDaSemana((erro, negociacoes) => {
+            if (erro) {
+                this._mensagem.texto = erro;
+                return;
+            }
+            negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+            this._mensagem.texto = 'Negociações importadas com sucesso.';
+        });
     }
+
 
     apaga() {
 
