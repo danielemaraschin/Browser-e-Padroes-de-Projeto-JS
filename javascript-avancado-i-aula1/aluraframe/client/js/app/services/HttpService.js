@@ -1,6 +1,6 @@
 class HttpService {
     get(url) {
-        return Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
 
             let xhr = new XMLHttpRequest();
 
