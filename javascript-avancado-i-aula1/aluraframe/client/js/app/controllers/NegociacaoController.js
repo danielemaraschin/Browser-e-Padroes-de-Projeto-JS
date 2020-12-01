@@ -31,36 +31,40 @@ class NegociacaoController {
     importaNegociacoes() {
 
         let service = new NegociacaoService();
-        service.obterNegociacoesDaSemana((erro, negociacoes) => {
-            if (erro) {
-                this._mensagem.texto = erro;
-                return;
-            }
-            negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao)); //Adicionar cada item desse novo array na lista de negociacoes
-            this._mensagem.texto = 'Negociações importadas com sucesso.';
-        });
+    
+        Promise.all([
+            service.obterNegociacoesDaSemana(),
+            service.obterNegociacoesDaSemanaAnterior(),
+            service.obterNegociacoesDaSemanaRetrasada()]
+        ).then(negociacoes => {
+            negociacoes
+              .reduce((arrayAchatado, array) => arrayAchatado.concat(array), [])
+              .forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+            this._mensagem.texto = 'Negociações importadas com sucesso';
+        })
+        .catch(erro => this._mensagem.texto = erro);  
+    
     }
 
+apaga() {
 
-    apaga() {
+    this._listaNegociacoes.esvazia();
+    this._mensagem.texto = 'Negociações apagadas com sucesso.';
+}
 
-        this._listaNegociacoes.esvazia();
-        this._mensagem.texto = 'Negociações apagadas com sucesso.';
-    }
+_criaNegociacao() {
+    return new Negociacao(
+        DateHelper.textoParaData(this._inputData.value),
+        this._inputQuantidade.value,
+        this._inputValor.value
+    );
+}
 
-    _criaNegociacao() {
-        return new Negociacao(
-            DateHelper.textoParaData(this._inputData.value),
-            this._inputQuantidade.value,
-            this._inputValor.value
-        );
-    }
+_limpaFormulario() {     // tem underline na frente pq somente a classe ListaNegociacao pode chamar esse método ( não faz sentido outra classe chamá-lo)
 
-    _limpaFormulario() {             // tem underline na frente pq somente a classe ListaNegociacao pode chamar esse método ( não faz sentido outra classe chamá-lo)
-
-        this._inputData.value = "";
-        this._inputQuantidade.value = 1;
-        this._inputValor.value = 0.0;
-        this._inputData.focus();
-    }
+    this._inputData.value = "";
+    this._inputQuantidade.value = 1;
+    this._inputValor.value = 0.0;
+    this._inputData.focus();
+}
 }
