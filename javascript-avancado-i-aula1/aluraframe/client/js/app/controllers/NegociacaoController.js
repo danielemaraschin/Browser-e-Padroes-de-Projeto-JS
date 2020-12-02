@@ -43,7 +43,6 @@ class NegociacaoController {
             this._mensagem.texto = 'Negociações importadas com sucesso';
         })
         .catch(erro => this._mensagem.texto = erro);  
-    
     }
 
 apaga() {
