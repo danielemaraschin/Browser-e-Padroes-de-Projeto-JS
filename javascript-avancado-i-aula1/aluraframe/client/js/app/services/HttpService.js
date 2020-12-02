@@ -22,6 +22,6 @@ class HttpService {
 
 service = new HttpService();
 
-service.get('negociacoes/semanaRetrasda').then(negociacoes => ???);
+//service.get('negociacoes/semanaRetrasda').then(negociacoes => ???);
 //service.get('url').then(acesso ao retorno que é a lista de negoc. => faz a operação desejada)
 //é uma promise por isso tem o 'then'
