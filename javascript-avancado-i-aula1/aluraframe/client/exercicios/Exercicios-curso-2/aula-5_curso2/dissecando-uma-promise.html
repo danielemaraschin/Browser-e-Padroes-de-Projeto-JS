@@ -6,12 +6,14 @@
 </head>
 <body>
     <script>
-
-        let promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve('PROMISE RESOLVIDA'), 5000);
+        let promise = new Promise((resolve, reject) => { // é aqui dentro que definimos o que será passado para `resolve` e o que será passado para `reject`.
+            console.log(resolve);
+            setTimeout(() => reject('houve problemas'), 5000);
         });
 
-        promise.then(resultado => console.log(resultado));
+        promise
+        .then(resultado => console.log(resultado))
+        .catch(erro => console.log(erro));
     </script>
 </body>
 </html>
