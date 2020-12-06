@@ -6,9 +6,15 @@
 </head>
 <body>
     <script>
+        let ok = false;
         let promise = new Promise((resolve, reject) => { // é aqui dentro que definimos o que será passado para `resolve` e o que será passado para `reject`.
-            console.log(resolve);
-            setTimeout(() => reject('houve problemas'), 5000);
+            setTimeout(() => {
+                if (ok){
+                    resolve('Promise Concluída');
+                } else {
+                    reject('houve problemas');
+                }
+            }, 5000);
         });
 
         promise
