@@ -11,7 +11,7 @@ class NegociacaoController {
         this._listaNegociacoes = new Bind(
             new ListaNegociacoes(), 
             new NegociacoesView($('#negociacoesView')), 
-            'adiciona', 'esvazia');             //METODOS
+            'adiciona', 'esvazia', 'ordena');             //METODOS
        
         this._mensagem = new Bind(
             new Mensagem(),                         //modelo
@@ -60,5 +60,9 @@ class NegociacaoController {
         this._inputQuantidade.value = 1;
         this._inputValor.value = 0.0;
         this._inputData.focus();   
+    }
+
+    ordena (coluna){
+        this._listaNegociacoes.ordena((a, b) => a[coluna] - b[coluna]); 
     }
 }
