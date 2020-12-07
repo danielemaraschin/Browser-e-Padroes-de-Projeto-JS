@@ -55,4 +55,18 @@ class NegociacaoService {
             });  
 
     }
+
+    obterNegociacoes(){
+        return Promise.all([
+            service.obterNegociacoesDaSemana(),
+            service.obterNegociacoesDaSemanaAnterior(),
+            service.obterNegociacoesDaSemanaRetrasada()]
+        ).then(periodos => {
+            let negociacoes = periodos.reduce((dados,semana) => dados.concat(semana), []);
+            return negociacoes;
+        }).catch(erro => {
+            throw new Error (erro);
+        });
+
+    }
 }
