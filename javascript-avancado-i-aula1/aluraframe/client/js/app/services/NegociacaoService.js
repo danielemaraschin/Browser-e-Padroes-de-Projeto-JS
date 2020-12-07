@@ -6,6 +6,7 @@ class NegociacaoService {
     }
 
     obterNegociacoesDaSemana() {
+
         return this._http
             .get('negociacoes/semana')
             .then(negociacoes => {
