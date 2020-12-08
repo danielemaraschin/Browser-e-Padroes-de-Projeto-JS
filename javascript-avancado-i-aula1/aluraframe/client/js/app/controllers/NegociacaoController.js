@@ -11,12 +11,12 @@ class NegociacaoController {
         this._listaNegociacoes = new Bind(
             new ListaNegociacoes(), 
             new NegociacoesView($('#negociacoesView')), 
-            'adiciona', 'esvazia', 'ordena');             //METODOS
-       
+            'adiciona', 'esvazia', 'ordena', 'inverteOrdem'); //métodos que estamos monitorando para atualizar automaticamente a View:
+        
         this._mensagem = new Bind(
-            new Mensagem(),                         //modelo
-            new MensagemView($('#mensagemView')),   //view   -colocar dentro dos parenteses onde quer add a msg (no html ) 
-            'texto');                               //condição  (PROPERTY)
+           new Mensagem(),                         //modelo
+           new MensagemView($('#mensagemView')),   //view   -colocar dentro dos parenteses onde quer add a msg (no html ) 
+           'texto');                               //condição  (PROPERTY)
     }
     
     adiciona(event) {
@@ -62,7 +62,12 @@ class NegociacaoController {
         this._inputData.focus();   
     }
 
-    ordena (coluna){
-        this._listaNegociacoes.ordena((a, b) => a[coluna] - b[coluna]); 
+    ordena(coluna) {
+        if(this._ordemAtual == coluna) {
+            this._listaNegociacoes.inverteOrdem();
+        } else {
+            this._listaNegociacoes.ordena((a, b) => a[coluna] - b[coluna]);    
+        }
+        this._ordemAtual = coluna;
     }
 }
